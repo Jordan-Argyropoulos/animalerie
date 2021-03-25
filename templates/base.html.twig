@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/brands.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/v4-shims.min.css">
+        <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+        {% block stylesheets %}
+        {% endblock %}
+    </head>
+    <body>
+        <header>
+            <i class="fa fa-bars"></i>
+            <h2>Animalerie</h2>
+            <div class="menu-right">
+                <i class="fa fa-power-off"></i>
+            </div>
+        </header>
+        <main>
+            <aside>
+                <nav>
+                    <ul>
+                        <li><a href=""><i class="fa fa-home menu-icon"></i>Home</a></li>
+                        <li class="has-submenu"><a><i class="fa fa-github menu-icon"></i>Animals</a>
+                            <ul>
+                                <li><a href="">Index</a></li>
+                                <li><a href="">Ajouter</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-submenu"><a><i class="fa fa-star menu-icon"></i>Races</a>
+                            <ul>
+                                <li><a href="{{ path('breed_index') }}">Index</a></li>
+                                <li><a href="{{ path('breed_add') }}">Ajouter</a></li>
+                            </ul>
+                        </li>
+                        <li><a href=""><i class="fa fa-cog menu-icon"></i>Paramètres</a></li>
+                    </ul>
+                </nav>
+            </aside>
+            <section>
+                {% block body %}{% endblock %}
+            </section>
+        </main>
+        <footer>
+            &copy; TechnofuturTIC - 2021
+        </footer>
+        {% block javascripts %}
+        {% endblock %}
+    </body>
+</html>
